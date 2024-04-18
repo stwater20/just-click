@@ -1,0 +1,43 @@
+/* styles.css */
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+}
+
+#counter-value {
+    font-size: 48px;
+    color: #333;
+    transition: transform 0.3s ease-in-out;
+}
+
+#counter-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+}
+
+#counter-button:hover {
+    background-color: #0056b3;
+}
+
+/* Animation for the counter */
+.bump {
+    animation: bump 0.3s ease;
+}
+
+@keyframes bump {
+    50% {
+        transform: scale(1.5);
+    }
+}
