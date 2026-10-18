@@ -3,14 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Just Click</title>
+    <title>Just Click – Free Online Click Counter Game | 點擊計數小遊戲</title>
+    <meta name="description" content="Just Click is a free, addictive click counter game. Tap as fast as you can, build combos, unlock achievements and beat your best clicks per second. No download, works on phone and desktop.">
+    <meta name="keywords" content="click counter, clicker game, click speed test, CPS test, tap counter, online counter, 點擊計數器, 點擊遊戲, 手速測試">
+    <meta name="theme-color" content="#6c4cff">
+    <link rel="canonical" href="{{ site_url }}/">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👆</text></svg>">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Just Click">
+    <meta property="og:title" content="Just Click – How fast can you click?">
+    <meta property="og:description" content="A free click counter game with combos, achievements and a clicks-per-second test.">
+    <meta property="og:url" content="{{ site_url }}/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Just Click – How fast can you click?">
+    <meta name="twitter:description" content="A free click counter game with combos, achievements and a clicks-per-second test.">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Just Click",
+        "url": "{{ site_url }}/",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Any",
+        "description": "A free online click counter game with combos, achievements and a clicks-per-second test.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <div class="container">
-        <h1 id="counter-value">0</h1>
-        <button id="counter-button">Count +1</button>
-    </div>
+    <main class="container">
+        <header>
+            <h1>Just Click</h1>
+            <p class="tagline">How fast can you click? · 你的手速有多快？</p>
+        </header>
+
+        <section class="game" aria-label="Click counter">
+            <div id="counter-value" aria-live="polite">0</div>
+            <button id="counter-button" type="button">Click me!</button>
+            <div id="combo" class="combo" aria-hidden="true"></div>
+            <p class="hint">Tip: press <kbd>Space</kbd> or <kbd>Enter</kbd> to click.</p>
+        </section>
+
+        <section class="stats" aria-label="Your stats">
+            <div><span class="stat-label">CPS</span><span id="stat-cps">0</span></div>
+            <div><span class="stat-label">Best CPS</span><span id="stat-best-cps">0</span></div>
+            <div><span class="stat-label">Best combo</span><span id="stat-best-combo">0</span></div>
+        </section>
+
+        <div class="actions">
+            <button id="share-button" type="button" class="secondary">Share my score</button>
+            <button id="sound-button" type="button" class="secondary" aria-pressed="true">🔊 Sound</button>
+            <button id="reset-button" type="button" class="secondary">Reset</button>
+        </div>
+
+        <section class="achievements" aria-label="Achievements">
+            <h2>Achievements</h2>
+            <ul id="achievement-list"></ul>
+        </section>
+
+        <section class="about">
+            <h2>What is Just Click?</h2>
+            <p>Just Click is a free online click counter and click speed game. Every click adds one to your counter, fast clicks build a combo, and the game tracks your clicks per second (CPS) so you can try to beat your record. Your progress is saved in your browser, so you can come back any time.</p>
+            <p>Just Click 是一個免費的線上點擊計數小遊戲：連續快速點擊可以累積連擊，還能測你的每秒點擊數（CPS）並解鎖成就。</p>
+        </section>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
