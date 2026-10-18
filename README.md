@@ -36,3 +36,21 @@ A step-by-step series of examples that tell you how to get a development environ
    docker run -p 3000:3000 just-click
    ```
    
+## Features
+
+- Big clickable button with particles, floating `+1`, sound effects and a colour that shifts as you click
+- Combo meter, live clicks-per-second (CPS), best CPS / best combo records
+- Achievements and milestone celebrations every 100 clicks
+- Progress saved in the browser (`localStorage`); keyboard support (Space / Enter)
+- Share button (native share sheet or copy to clipboard)
+
+## SEO
+
+The page ships with a description, Open Graph / Twitter tags, JSON-LD structured data, `/robots.txt` and `/sitemap.xml`.
+Set `SITE_URL` to your public address so canonical links and the sitemap use it:
+
+```bash
+docker run -p 3000:3000 -e SITE_URL=https://your-domain.example just-click
+```
+
+After deploying, submit `https://your-domain.example/sitemap.xml` in Google Search Console.
